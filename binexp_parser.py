@@ -133,6 +133,7 @@ class BinOpAst():
         3) Extra #1: Multiplication by 0, e.g. x * 0 = 0
         4) Extra #2: Constant folding, e.g. statically we can reduce 1 + 1 to 2, but not x + 1 to anything
         """
+        # The individual functions should recur, you aren't testing each individually like this
         if self.left.type == NodeType.operator:
             self.left.simplify_binops()
         if self.right.type == NodeType.operator:
